@@ -1,0 +1,71 @@
+openapi: 3.0.1
+info:
+  title: Traductor Excel
+  version: 1.0.0
+paths:
+  /extraer_texto:
+    post:
+      summary: Extrae el texto de un archivo Excel
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Texto extraído
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  archivo_id:
+                    type: string
+                  celdas:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        row:
+                          type: integer
+                        col:
+                          type: integer
+                        texto:
+                          type: string
+
+  /escribir_traduccion:
+    post:
+      summary: Recibe traducciones y devuelve un archivo Excel traducido
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                archivo_id:
+                  type: string
+                traducciones:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      row:
+                        type: integer
+                      col:
+                        type: integer
+                      texto:
+                        type: string
+      responses:
+        '200':
+          description: Archivo traducido
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
