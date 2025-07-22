@@ -7,6 +7,7 @@ servers:
 paths:
   /extraer_texto:
     post:
+      operationId: extraerTextoExcel
       summary: Extrae el texto de un archivo Excel
       requestBody:
         required: true
@@ -42,6 +43,7 @@ paths:
 
   /escribir_traduccion:
     post:
+      operationId: escribirExcelTraducido
       summary: Recibe traducciones y devuelve un archivo Excel traducido
       requestBody:
         required: true
