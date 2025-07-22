@@ -41,3 +41,11 @@ async def escribir_traduccion(request: TraduccionRequest):
     ruta_archivo = archivos_guardados[archivo_id]
     archivo_salida = escribir_excel_traducido(ruta_archivo, request.traducciones)
     return FileResponse(archivo_salida, media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+@app.get("/openapi.yaml")
+async def serve_openapi():
+    return FileResponse("openapi.yaml", media_type="text/yaml")
+
+@app.get("/.well-known/ai-plugin.json")
+async def serve_plugin_manifest():
+    return FileResponse(".well-known/ai-plugin.json", media_type="application/json")
