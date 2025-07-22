@@ -1,0 +1,14 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Traductor Excel",
+  "name_for_model": "excel_translator",
+  "description_for_model": "Traduce archivos Excel al español. Usa /extraer_texto para obtener el contenido y /escribir_traduccion para generar el archivo traducido.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://excel-gpt-api.onrender.com/openapi.yaml"
+  },
+  "logo_url": "https://excel-gpt-api.onrender.com/logo.png",
+  "contact_email": "jacobo@tuempresa.com",
+  "legal_info_url": "https://tuempresa.com/legal"
+}
