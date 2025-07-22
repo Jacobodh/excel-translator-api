@@ -1,38 +1,17 @@
-/extraer_texto:
-  post:
-    operationId: extraerTextoExcel
-    summary: Extrae el texto de un archivo Excel
-    requestBody:
-      required: true
-      content:
-        multipart/form-data:
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-          encoding:
-            file:
-              contentType: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-    responses:
-      '200':
-        description: Texto extraído
+openapi: 3.1.0
+info:
+  title: Traductor Excel
+  version: 1.0.0
+servers:
+  - url: https://excel-gpt-api.onrender.com
+
+paths:
+  /extraer_texto:
+    post:
+      operationId: extraerTextoExcel
+      summary: Extrae el texto de un archivo Excel
+      requestBody:
+        required: true
         content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                archivo_id:
-                  type: string
-                celdas:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      row:
-                        type: integer
-                      col:
-                        type: integer
-                      texto:
-                        type: string
+          multipart/form-data:
+            schema
